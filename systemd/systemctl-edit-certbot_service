@@ -1,0 +1,16 @@
+### Editing /etc/systemd/system/certbot.service.d/override.conf
+### Anything between here and the comment below will become the new contents of the file
+
+ExecStart=/usr/bin/certbot -q renew --no-random-sleep-on-renew --renew-hook "systemctl reload nginx"
+
+### Lines below this comment will be discarded
+
+### /lib/systemd/system/certbot.service
+# [Unit]
+# Description=Certbot
+# Documentation=file:///usr/share/doc/python-certbot-doc/html/index.html
+# Documentation=https://certbot.eff.org/docs
+# [Service]
+# Type=oneshot
+# ExecStart=/usr/bin/certbot -q renew --no-random-sleep-on-renew
+# PrivateTmp=true
